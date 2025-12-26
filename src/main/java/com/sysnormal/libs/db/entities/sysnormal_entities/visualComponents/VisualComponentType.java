@@ -1,6 +1,6 @@
 package com.sysnormal.libs.db.entities.sysnormal_entities.visualComponents;
 
-import com.sysnormal.libs.db.entities.basic_entities.BaseBasicEntity;
+import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -25,7 +25,7 @@ import org.hibernate.annotations.ColumnDefault;
                 )
         }
 )
-public class VisualComponentType extends BaseBasicEntity<VisualComponentType> {
+public class VisualComponentType extends BaseSysnormalEntity<VisualComponentType> {
 
     @Column(name = "name", nullable = false, length = 127)
     private String name;

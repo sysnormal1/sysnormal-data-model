@@ -1,7 +1,7 @@
 package com.sysnormal.libs.db.entities.sysnormal_entities.apis;
 
 
-import com.sysnormal.libs.db.entities.basic_entities.BaseBasicEntity;
+import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -24,7 +24,7 @@ import lombok.Setter;
                 )
         }
 )
-public class Api extends BaseBasicEntity<Api> {
+public class Api extends BaseSysnormalEntity<Api> {
 
     @Column(name = "name", nullable = false, length = 127)
     private String name;

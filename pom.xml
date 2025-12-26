@@ -72,6 +72,13 @@
 
 		<dependency>
 			<groupId>com.sysnormal.libs.db.entities</groupId>
+			<artifactId>base-entities</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sysnormal.libs.db.entities</groupId>
 			<artifactId>basic-entities</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<optional>true</optional>

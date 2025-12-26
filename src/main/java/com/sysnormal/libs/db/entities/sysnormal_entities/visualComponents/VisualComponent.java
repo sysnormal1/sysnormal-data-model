@@ -1,6 +1,6 @@
 package com.sysnormal.libs.db.entities.sysnormal_entities.visualComponents;
 
-import com.sysnormal.libs.db.entities.basic_entities.BaseBasicEntity;
+import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,7 +24,7 @@ import java.math.BigInteger;
                 )
         }
 )
-public class VisualComponent extends BaseBasicEntity<VisualComponent> {
+public class VisualComponent extends BaseSysnormalEntity<VisualComponent> {
 
     private static final String RESOURCE_PATH = "db/migration/visual_components.json"; // expected on classpath
 

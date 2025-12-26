@@ -1,6 +1,6 @@
 package com.sysnormal.libs.db.entities.sysnormal_entities.reports.campaigns;
 
-import com.sysnormal.libs.db.entities.basic_entities.BaseBasicEntity;
+import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,7 +23,7 @@ import org.hibernate.annotations.OnDeleteAction;
                 )
         }
 )
-public class CampaignKpiValueDetailEntity extends BaseBasicEntity<CampaignKpiValueDetailEntity> {
+public class CampaignKpiValueDetailEntity extends BaseSysnormalEntity<CampaignKpiValueDetailEntity> {
 
     @Column(name = "campaign_kpi_value_detail_id", nullable = false)
     private Long campaignKpiValueDetailId;

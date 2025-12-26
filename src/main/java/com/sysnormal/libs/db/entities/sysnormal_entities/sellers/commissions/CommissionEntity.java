@@ -1,8 +1,8 @@
 package com.sysnormal.libs.db.entities.sysnormal_entities.sellers.commissions;
 
-import com.sysnormal.libs.db.entities.basic_entities.BaseBasicEntity;
 import com.sysnormal.libs.db.entities.basic_entities.commons.EntityType;
 import com.sysnormal.libs.db.entities.basic_entities.commons.TemporalPeriod;
+import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,7 +33,7 @@ import java.time.LocalDateTime;
                 )
         }
 )
-public class CommissionEntity extends BaseBasicEntity<CommissionEntity> {
+public class CommissionEntity extends BaseSysnormalEntity<CommissionEntity> {
 
 
     @Column(name = "commission_contract_id", nullable = false)

@@ -1,6 +1,6 @@
 package com.sysnormal.libs.db.entities.sysnormal_entities.reports.campaigns;
 
-import com.sysnormal.libs.db.entities.basic_entities.BaseBasicEntity;
+import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,7 +26,7 @@ import java.time.LocalDateTime;
                 )
         }
 )
-public class CampaignEntity extends BaseBasicEntity<CampaignEntity> {
+public class CampaignEntity extends BaseSysnormalEntity<CampaignEntity> {
 
     @Column(name = "campaign_id", nullable = false)
     private Long campaignId;

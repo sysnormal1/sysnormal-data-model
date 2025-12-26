@@ -1,6 +1,6 @@
 package com.sysnormal.libs.db.entities.sysnormal_entities.sellers.commissions;
 
-import com.sysnormal.libs.db.entities.basic_entities.BaseBasicEntity;
+import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @Table(
         name = "commissions_old"
 )
-public class CommissionOld extends BaseBasicEntity<CommissionOld> {
+public class CommissionOld extends BaseSysnormalEntity<CommissionOld> {
 
     @Column(name = "name", nullable = false, length = 127)
     private String name;

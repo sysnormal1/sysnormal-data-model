@@ -1,6 +1,6 @@
 package com.sysnormal.libs.db.entities.sysnormal_entities.apis;
 
-import com.sysnormal.libs.db.entities.basic_entities.BaseBasicEntity;
+import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Table(
         name = "maps_api_responses"
 )
-public class MapsApiResponse extends BaseBasicEntity<MapsApiResponse> {
+public class MapsApiResponse extends BaseSysnormalEntity<MapsApiResponse> {
 
     @Column(name = "entity", length = 127)
     private String entity;

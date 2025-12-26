@@ -1,8 +1,8 @@
 package com.sysnormal.libs.db.entities.sysnormal_entities.visualComponents;
 
-import com.sysnormal.libs.db.entities.basic_entities.BaseBasicEntity;
 import com.sysnormal.libs.db.entities.basic_entities.agents.Agent;
 import com.sysnormal.libs.db.entities.basic_entities.agents.access.AccessProfile;
+import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,7 +32,7 @@ import java.time.LocalDateTime;
                 )
         }
 )
-public class VisualComponentPermission extends BaseBasicEntity<VisualComponentPermission> {
+public class VisualComponentPermission extends BaseSysnormalEntity<VisualComponentPermission> {
 
 
     @Column(name = "access_profile_id", nullable = false)

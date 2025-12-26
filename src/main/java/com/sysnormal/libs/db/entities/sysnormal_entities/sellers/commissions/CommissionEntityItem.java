@@ -1,8 +1,8 @@
 package com.sysnormal.libs.db.entities.sysnormal_entities.sellers.commissions;
 
-import com.sysnormal.libs.db.entities.basic_entities.BaseBasicEntity;
 import com.sysnormal.libs.db.entities.basic_entities.commons.MeasurementUnit;
 import com.sysnormal.libs.db.entities.basic_entities.reports.ReportVision;
+import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,7 +31,7 @@ import java.time.LocalDateTime;
                 )
         }
 )
-public class CommissionEntityItem extends BaseBasicEntity<CommissionEntityItem> {
+public class CommissionEntityItem extends BaseSysnormalEntity<CommissionEntityItem> {
 
     @Column(name = "commission_entity_id", nullable = false)
     private Long commissionEntityId;

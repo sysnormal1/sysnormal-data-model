@@ -1,9 +1,9 @@
 package com.sysnormal.libs.db.entities.sysnormal_entities.reports.campaigns;
 
-import com.sysnormal.libs.db.entities.basic_entities.BaseBasicEntity;
 import com.sysnormal.libs.db.entities.basic_entities.commons.EntityType;
 import com.sysnormal.libs.db.entities.basic_entities.commons.MeasurementUnit;
 import com.sysnormal.libs.db.entities.basic_entities.database.Tables;
+import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,7 +33,7 @@ import java.time.LocalDateTime;
                 )
         }
 )
-public class Objective extends BaseBasicEntity<Objective> {
+public class Objective extends BaseSysnormalEntity<Objective> {
 
     @Column(name = "name", nullable = false, length = 127)
     private String name;

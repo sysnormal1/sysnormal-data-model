@@ -1,6 +1,6 @@
 package com.sysnormal.libs.db.entities.sysnormal_entities.apis;
 
-import com.sysnormal.libs.db.entities.basic_entities.BaseBasicEntity;
+import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +13,7 @@ import org.hibernate.annotations.OnDeleteAction;
 @Table(
         name = "api_requests"
 )
-public class ApiRequest extends BaseBasicEntity<ApiRequest> {
+public class ApiRequest extends BaseSysnormalEntity<ApiRequest> {
 
     @Column(name = "api_id", nullable = false)
     private Long apiRequestId;

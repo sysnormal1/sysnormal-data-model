@@ -1,6 +1,6 @@
 package com.sysnormal.libs.db.entities.sysnormal_entities.reports.campaigns;
 
-import com.sysnormal.libs.db.entities.basic_entities.BaseBasicEntity;
+import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,7 +25,7 @@ import org.hibernate.annotations.OnDeleteAction;
                 )
         }
 )
-public class CampaignKpi extends BaseBasicEntity<CampaignKpi> {
+public class CampaignKpi extends BaseSysnormalEntity<CampaignKpi> {
 
     @Column(name = "campaign_id", nullable = false)
     private Long campaignId;
