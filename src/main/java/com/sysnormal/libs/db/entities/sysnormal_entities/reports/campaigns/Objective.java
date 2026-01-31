@@ -1,8 +1,8 @@
 package com.sysnormal.libs.db.entities.sysnormal_entities.reports.campaigns;
 
-import com.sysnormal.libs.db.entities.basic_entities.commons.EntityType;
-import com.sysnormal.libs.db.entities.basic_entities.commons.MeasurementUnit;
-import com.sysnormal.libs.db.entities.basic_entities.database.Tables;
+import com.sysnormal.libs.db.entities.basic_entities.commons.entityType.EntityType;
+import com.sysnormal.libs.db.entities.basic_entities.database.tables.Tables;
+import com.sysnormal.libs.db.entities.basic_entities.measures.measurementUnit.MeasurementUnit;
 import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;

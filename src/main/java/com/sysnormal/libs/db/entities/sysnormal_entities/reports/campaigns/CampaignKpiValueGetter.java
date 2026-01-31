@@ -1,7 +1,7 @@
 package com.sysnormal.libs.db.entities.sysnormal_entities.reports.campaigns;
 
-import com.sysnormal.libs.db.entities.basic_entities.commons.MeasurementUnit;
-import com.sysnormal.libs.db.entities.basic_entities.reports.ReportVision;
+import com.sysnormal.libs.db.entities.basic_entities.measures.measurementUnit.MeasurementUnit;
+import com.sysnormal.libs.db.entities.basic_entities.reports.reportVision.ReportVision;
 import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;

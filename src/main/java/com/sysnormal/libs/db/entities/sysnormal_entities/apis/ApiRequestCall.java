@@ -1,6 +1,6 @@
 package com.sysnormal.libs.db.entities.sysnormal_entities.apis;
 
-import com.sysnormal.libs.db.entities.basic_entities.commons.ActionStatus;
+import com.sysnormal.libs.db.entities.basic_entities.commons.actionStatus.ActionStatus;
 import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
