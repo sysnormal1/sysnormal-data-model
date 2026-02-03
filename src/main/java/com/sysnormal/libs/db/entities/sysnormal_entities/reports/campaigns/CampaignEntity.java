@@ -45,7 +45,7 @@ public class CampaignEntity extends BaseSysnormalEntity<CampaignEntity> {
     @Column(name = "conditions", length = Integer.MAX_VALUE)
     private String conditions;
 
-    @Column(name = "notes")
+    @Column(name = "notes", length = Integer.MAX_VALUE)
     private String notes;
 
 

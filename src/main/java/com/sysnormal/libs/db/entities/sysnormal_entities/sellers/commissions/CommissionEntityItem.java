@@ -42,7 +42,7 @@ public class CommissionEntityItem extends BaseSysnormalEntity<CommissionEntityIt
     @Column(name = "name", nullable = false, length = 127)
     private String name;
 
-    @Column(name = "description")
+    @Column(name = "description", length = Integer.MAX_VALUE)
     private String description;
 
     @Column(name = "start_at")
@@ -150,7 +150,7 @@ public class CommissionEntityItem extends BaseSysnormalEntity<CommissionEntityIt
     @Check(constraints = "should_auto_replicate in (0,1)")
     private byte shouldAutoReplicate = 0;
 
-    @Column(name = "notes")
+    @Column(name = "notes", length = Integer.MAX_VALUE)
     private String notes;
 
     @ManyToOne(fetch = FetchType.LAZY)

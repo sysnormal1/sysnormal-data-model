@@ -48,7 +48,7 @@ public class CommissionEntity extends BaseSysnormalEntity<CommissionEntity> {
     @Column(name = "entity_name", nullable = false, length = 127)
     private String entityName;
 
-    @Column(name = "description")
+    @Column(name = "description", length = Integer.MAX_VALUE)
     private String description;
 
     @Column(name = "apuration_temporal_period_id")
@@ -105,7 +105,7 @@ public class CommissionEntity extends BaseSysnormalEntity<CommissionEntity> {
     @Check(constraints = "should_auto_replicate in (0,1)")
     private byte shouldAutoReplicate = 0;
 
-    @Column(name = "notes")
+    @Column(name = "notes", length = Integer.MAX_VALUE)
     private String notes;
 
 

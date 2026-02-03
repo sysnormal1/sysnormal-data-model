@@ -39,7 +39,7 @@ public class CampaignKpiValueDetail extends BaseSysnormalEntity<CampaignKpiValue
     @Check(constraints = "is_never_selled in (0,1)")
     private byte considerReturns = 0;
 
-    @Column(name = "notes")
+    @Column(name = "notes", length = Integer.MAX_VALUE)
     private String notes;
 
 

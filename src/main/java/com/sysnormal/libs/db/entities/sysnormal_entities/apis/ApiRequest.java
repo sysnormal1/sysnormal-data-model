@@ -21,7 +21,7 @@ public class ApiRequest extends BaseSysnormalEntity<ApiRequest> {
     @Column(name = "name", length = 127)
     private String name;
 
-    @Column(name = "description")
+    @Column(name = "description", length = Integer.MAX_VALUE)
     private String description;
 
     @Column(name = "method", length = 10)

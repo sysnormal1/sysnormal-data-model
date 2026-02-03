@@ -33,7 +33,7 @@ public class CampaignKpi extends BaseSysnormalEntity<CampaignKpi> {
     @Column(name = "name", nullable = false, length = 127)
     private String name;
 
-    @Column(name = "description")
+    @Column(name = "description", length = Integer.MAX_VALUE)
     private String description;
 
     @Column(name = "conditions", length = Integer.MAX_VALUE)
@@ -48,7 +48,7 @@ public class CampaignKpi extends BaseSysnormalEntity<CampaignKpi> {
     @ColumnDefault("1")
     private int numericOrder = 1;
 
-    @Column(name = "notes")
+    @Column(name = "notes", length = Integer.MAX_VALUE)
     private String notes;
 
     @ManyToOne(fetch = FetchType.LAZY)

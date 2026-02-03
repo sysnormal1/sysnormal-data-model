@@ -88,7 +88,7 @@ public class CampaignKpiValueGetter extends BaseSysnormalEntity<CampaignKpiValue
     @Column(name = "calculated_at")
     private LocalDateTime calculatedAt;
 
-    @Column(name = "notes")
+    @Column(name = "notes", length = Integer.MAX_VALUE)
     private String notes;
 
     @ManyToOne(fetch = FetchType.LAZY)

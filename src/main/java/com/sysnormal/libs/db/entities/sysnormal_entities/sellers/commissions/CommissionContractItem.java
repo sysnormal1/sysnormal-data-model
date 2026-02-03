@@ -37,7 +37,7 @@ public class CommissionContractItem extends BaseSysnormalEntity<CommissionContra
     @Column(name = "name", nullable = false, length = 127)
     private String name;
 
-    @Column(name = "description")
+    @Column(name = "description", length = Integer.MAX_VALUE)
     private String description;
 
     @Column(name = "replication_temporal_period_id")
@@ -128,7 +128,7 @@ public class CommissionContractItem extends BaseSysnormalEntity<CommissionContra
     @Column(name = "expression", length = Integer.MAX_VALUE)
     private String expression;
 
-    @Column(name = "notes")
+    @Column(name = "notes", length = Integer.MAX_VALUE)
     private String notes;
 
     @ManyToOne(fetch = FetchType.LAZY)
