@@ -1,7 +1,7 @@
-package com.sysnormal.libs.db.entities.sysnormal_entities.apis;
+package com.sysnormal.data.sysnormal_data_model.entities.apis;
 
-import com.sysnormal.libs.db.entities.basic_entities.commons.actionStatus.ActionStatus;
-import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
+import com.sysnormal.data.basic_data_model.entities.commons.actionStatus.ActionStatus;
+import com.sysnormal.data.sysnormal_data_model.entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -36,8 +36,5 @@ public class ApiRequestCall extends BaseSysnormalEntity<ApiRequestCall> {
     @JoinColumn(name = "run_status_id", updatable = false, insertable = false)
     private ActionStatus runStatus;
 
-    protected static final long TABLE_ID = 20002;
-    public static long getTableId() {
-        return TABLE_ID;
-    }
+
 }

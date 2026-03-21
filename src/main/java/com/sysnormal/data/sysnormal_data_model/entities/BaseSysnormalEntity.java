@@ -1,6 +1,6 @@
-package com.sysnormal.libs.db.entities.sysnormal_entities;
+package com.sysnormal.data.sysnormal_data_model.entities;
 
-import com.sysnormal.libs.db.entities.basic_entities.BaseBasicEntity;
+import com.sysnormal.data.basic_data_model.entities.BaseBasicEntity;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,6 +1,6 @@
-package com.sysnormal.libs.db.entities.sysnormal_entities.apis;
+package com.sysnormal.data.sysnormal_data_model.entities.apis;
 
-import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
+import com.sysnormal.data.sysnormal_data_model.entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -47,8 +47,5 @@ public class ApiRequest extends BaseSysnormalEntity<ApiRequest> {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Api apiId;
 
-    protected static final long TABLE_ID = 20001;
-    public static long getTableId() {
-        return TABLE_ID;
-    }
+
 }

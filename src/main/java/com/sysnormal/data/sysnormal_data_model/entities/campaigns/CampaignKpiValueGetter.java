@@ -1,8 +1,8 @@
-package com.sysnormal.libs.db.entities.sysnormal_entities.reports.campaigns;
+package com.sysnormal.data.sysnormal_data_model.entities.campaigns;
 
-import com.sysnormal.libs.db.entities.basic_entities.measures.measurementUnit.MeasurementUnit;
-import com.sysnormal.libs.db.entities.basic_entities.reports.reportVision.ReportVision;
-import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
+import com.sysnormal.data.basic_data_model.entities.measures.measurementUnit.MeasurementUnit;
+import com.sysnormal.data.basic_data_model.entities.reports.reportVision.ReportVision;
+import com.sysnormal.data.sysnormal_data_model.entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -104,8 +104,5 @@ public class CampaignKpiValueGetter extends BaseSysnormalEntity<CampaignKpiValue
     @JoinColumn(name = "measurement_unit_id", updatable = false, insertable = false)
     private MeasurementUnit measurementUnit;
 
-    protected static final long TABLE_ID = 16006;
-    public static long getTableId() {
-        return TABLE_ID;
-    }
+
 }

@@ -1,6 +1,6 @@
-package com.sysnormal.libs.db.entities.sysnormal_entities.reports.campaigns;
+package com.sysnormal.data.sysnormal_data_model.entities.campaigns;
 
-import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
+import com.sysnormal.data.sysnormal_data_model.entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -56,8 +56,5 @@ public class CampaignKpi extends BaseSysnormalEntity<CampaignKpi> {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Campaign campaign;
 
-    protected static final long TABLE_ID = 16005;
-    public static long getTableId() {
-        return TABLE_ID;
-    }
+
 }

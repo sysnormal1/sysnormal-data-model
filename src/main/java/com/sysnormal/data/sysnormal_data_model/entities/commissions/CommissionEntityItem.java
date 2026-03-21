@@ -1,8 +1,8 @@
-package com.sysnormal.libs.db.entities.sysnormal_entities.sellers.commissions;
+package com.sysnormal.data.sysnormal_data_model.entities.commissions;
 
-import com.sysnormal.libs.db.entities.basic_entities.measures.measurementUnit.MeasurementUnit;
-import com.sysnormal.libs.db.entities.basic_entities.reports.reportVision.ReportVision;
-import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
+import com.sysnormal.data.basic_data_model.entities.measures.measurementUnit.MeasurementUnit;
+import com.sysnormal.data.basic_data_model.entities.reports.reportVision.ReportVision;
+import com.sysnormal.data.sysnormal_data_model.entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,27 +12,32 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Entity
 @Table(
-        name = "commission_contract_items",
+        name = "commission_entity_items",
         uniqueConstraints = {
                 @UniqueConstraint(
-                        name = "commission_contract_items_u1",
+                        name = "commission_entity_items_u1",
                         columnNames = {
                                 "(coalesce(parent_id, 0))","status_reg_id","data_origin_id","(coalesce(table_origin_id, 0))","(coalesce(id_at_origin, 0))",
-                                "commission_contract_id",
+                                "commission_entity_id",
+                                "(coalesce(commission_contract_item_id,0))",
                                 "name"
                         }
                 )
         }
 )
-public class CommissionContractItem extends BaseSysnormalEntity<CommissionContractItem> {
+public class CommissionEntityItem extends BaseSysnormalEntity<CommissionEntityItem> {
 
-    @Column(name = "commission_contract_id", nullable = false)
-    private Long commissionContractId;
+    @Column(name = "commission_entity_id", nullable = false)
+    private Long commissionEntityId;
+
+    @Column(name = "commission_contract_item_id")
+    private Long commissionContractItemId;
 
     @Column(name = "name", nullable = false, length = 127)
     private String name;
@@ -40,8 +45,11 @@ public class CommissionContractItem extends BaseSysnormalEntity<CommissionContra
     @Column(name = "description", length = Integer.MAX_VALUE)
     private String description;
 
-    @Column(name = "replication_temporal_period_id")
-    private Long replicationTemporalPeriodId;
+    @Column(name = "start_at")
+    private LocalDateTime startAt;
+
+    @Column(name = "end_at")
+    private LocalDateTime endAt;
 
     @Column(name = "consider_in_others_items", nullable = false)
     @ColumnDefault("0")
@@ -105,6 +113,9 @@ public class CommissionContractItem extends BaseSysnormalEntity<CommissionContra
     @Column(name = "base_value_expression", length = Integer.MAX_VALUE)
     private String baseValueExpression;
 
+    @Column(name = "base_value", precision = 38, scale = 12)
+    private BigDecimal base_value;
+
     @Column(name = "min_percent1", precision = 38, scale = 12)
     private BigDecimal minPercent1;
 
@@ -128,13 +139,28 @@ public class CommissionContractItem extends BaseSysnormalEntity<CommissionContra
     @Column(name = "expression", length = Integer.MAX_VALUE)
     private String expression;
 
+    @Column(name = "result_value", precision = 38, scale = 12)
+    private BigDecimal resultValue;
+
+    @Column(name = "calculated_at")
+    private LocalDateTime calculatedAt;
+
+    @Column(name = "should_auto_replicate", nullable = false)
+    @ColumnDefault("0")
+    @Check(constraints = "should_auto_replicate in (0,1)")
+    private byte shouldAutoReplicate = 0;
+
     @Column(name = "notes", length = Integer.MAX_VALUE)
     private String notes;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "commission_contract_id", updatable = false, insertable = false)
+    @JoinColumn(name = "commission_entity_id", updatable = false, insertable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private CommissionContract commissionContract;
+    private CommissionEntity commissionEntity;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "commission_contract_item_id", updatable = false, insertable = false)
+    private CommissionContractItem commissionContractItem;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "report_vision_id", updatable = false, insertable = false)
@@ -144,8 +170,5 @@ public class CommissionContractItem extends BaseSysnormalEntity<CommissionContra
     @JoinColumn(name = "measurement_unit_id", updatable = false, insertable = false)
     private MeasurementUnit measurementUnit;
 
-    protected static final long TABLE_ID = 16102;
-    public static long getTableId() {
-        return TABLE_ID;
-    }
+
 }

@@ -1,7 +1,7 @@
-package com.sysnormal.libs.db.entities.sysnormal_entities.sellers.commissions;
+package com.sysnormal.data.sysnormal_data_model.entities.commissions;
 
-import com.sysnormal.libs.db.entities.basic_entities.measures.temporalPeriod.TemporalPeriod;
-import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
+import com.sysnormal.data.basic_data_model.entities.measures.temporalPeriod.TemporalPeriod;
+import com.sysnormal.data.sysnormal_data_model.entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -78,8 +78,5 @@ public class CommissionContract extends BaseSysnormalEntity<CommissionContract> 
     @JoinColumn(name = "replication_temporal_period_id", updatable = false, insertable = false)
     private TemporalPeriod replicationTemporalPeriod;
 
-    protected static final long TABLE_ID = 16100;
-    public static long getTableId() {
-        return TABLE_ID;
-    }
+
 }

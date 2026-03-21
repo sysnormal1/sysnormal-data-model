@@ -1,9 +1,9 @@
-package com.sysnormal.libs.db.entities.sysnormal_entities.reports.campaigns;
+package com.sysnormal.data.sysnormal_data_model.entities.campaigns;
 
-import com.sysnormal.libs.db.entities.basic_entities.commons.entityType.EntityType;
-import com.sysnormal.libs.db.entities.basic_entities.database.tables.Tables;
-import com.sysnormal.libs.db.entities.basic_entities.measures.measurementUnit.MeasurementUnit;
-import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
+import com.sysnormal.data.basic_data_model.entities.commons.entityType.EntityType;
+import com.sysnormal.data.basic_data_model.entities.database.tables.Tables;
+import com.sysnormal.data.basic_data_model.entities.measures.measurementUnit.MeasurementUnit;
+import com.sysnormal.data.sysnormal_data_model.entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -99,9 +99,6 @@ public class Objective extends BaseSysnormalEntity<Objective> {
     @JoinColumn(name = "measurement_unit_id", insertable = false, updatable = false)
     private MeasurementUnit measurementUnit;
 
-    protected static final long TABLE_ID = 9060;
-    public static long getTableId() {
-        return TABLE_ID;
-    }
+
 
 }

@@ -1,7 +1,7 @@
-package com.sysnormal.libs.db.entities.sysnormal_entities.reports.campaigns;
+package com.sysnormal.data.sysnormal_data_model.entities.campaigns;
 
-import com.sysnormal.libs.db.entities.basic_entities.commons.entityType.EntityType;
-import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
+import com.sysnormal.data.basic_data_model.entities.commons.entityType.EntityType;
+import com.sysnormal.data.sysnormal_data_model.entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -56,8 +56,5 @@ public class Campaign extends BaseSysnormalEntity<Campaign> {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private EntityType entityType;
 
-    protected static final long TABLE_ID = 16000;
-    public static long getTableId() {
-        return TABLE_ID;
-    }
+
 }

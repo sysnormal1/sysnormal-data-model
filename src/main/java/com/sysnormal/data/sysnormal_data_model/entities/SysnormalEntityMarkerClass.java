@@ -1,4 +1,4 @@
-package com.sysnormal.libs.db.entities.sysnormal_entities;
+package com.sysnormal.data.sysnormal_data_model.entities;
 
 /**
  * Marker class used to safely reference this package in

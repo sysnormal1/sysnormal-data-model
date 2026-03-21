@@ -1,6 +1,6 @@
-package com.sysnormal.libs.db.entities.sysnormal_entities.apis;
+package com.sysnormal.data.sysnormal_data_model.entities.apis;
 
-import com.sysnormal.libs.db.entities.sysnormal_entities.BaseSysnormalEntity;
+import com.sysnormal.data.sysnormal_data_model.entities.BaseSysnormalEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -42,8 +42,5 @@ public class MapsApiResponse extends BaseSysnormalEntity<MapsApiResponse> {
     private LocalDateTime responseExpireAt;
 
 
-    protected static final long TABLE_ID = 20010;
-    public static long getTableId() {
-        return TABLE_ID;
-    }
+
 }
