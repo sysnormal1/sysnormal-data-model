@@ -14,27 +14,34 @@ import org.hibernate.annotations.OnDeleteAction;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+/**
+ * Uma linha do fechamento — era {@code commission_entity_items}.
+ *
+ * <p>Acompanha o rename de {@code commission_entities} para
+ * {@link CommissionApuration}: a única mudança de forma é a chave estrangeira,
+ * que passa a se chamar {@code commission_apuration_id}.</p>
+ */
 @Getter
 @Setter
 @Entity
 @Table(
-        name = "commission_entity_items",
+        name = "commission_apuration_items",
         uniqueConstraints = {
                 @UniqueConstraint(
-                        name = "commission_entity_items_u1",
+                        name = "commission_apuration_items_u1",
                         columnNames = {
                                 "(coalesce(parent_id, 0))","status_reg_id","data_origin_id","(coalesce(table_origin_id, 0))","(coalesce(id_at_origin, 0))",
-                                "commission_entity_id",
+                                "commission_apuration_id",
                                 "(coalesce(commission_contract_item_id,0))",
                                 "name"
                         }
                 )
         }
 )
-public class CommissionEntityItem extends BaseSysnormalEntity<CommissionEntityItem> {
+public class CommissionApurationItem extends BaseSysnormalEntity<CommissionApurationItem> {
 
-    @Column(name = "commission_entity_id", nullable = false)
-    private Long commissionEntityId;
+    @Column(name = "commission_apuration_id", nullable = false)
+    private Long commissionApurationId;
 
     @Column(name = "commission_contract_item_id")
     private Long commissionContractItemId;
@@ -154,9 +161,9 @@ public class CommissionEntityItem extends BaseSysnormalEntity<CommissionEntityIt
     private String notes;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "commission_entity_id", updatable = false, insertable = false)
+    @JoinColumn(name = "commission_apuration_id", updatable = false, insertable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private CommissionEntity commissionEntity;
+    private CommissionApuration commissionApuration;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "commission_contract_item_id", updatable = false, insertable = false)

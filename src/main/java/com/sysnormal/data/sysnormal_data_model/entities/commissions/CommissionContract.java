@@ -1,6 +1,7 @@
 package com.sysnormal.data.sysnormal_data_model.entities.commissions;
 
 import com.sysnormal.data.basic_data_model.entities.measures.temporalPeriod.TemporalPeriod;
+import com.sysnormal.data.basic_data_model.entities.reports.reportDataFount.ReportDataFount;
 import com.sysnormal.data.sysnormal_data_model.entities.BaseSysnormalEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -40,6 +41,18 @@ public class CommissionContract extends BaseSysnormalEntity<CommissionContract> 
     @Column(name = "replication_temporal_period_id")
     private Long replicationTemporalPeriodId;
 
+    /**
+     * Como o valor deste contrato é obtido.
+     *
+     * <p>Nulo é o caso corrente: o valor sai dos {@link CommissionContractItem},
+     * calculados pelo motor estruturado. Preenchido, o cálculo inteiro vem de uma
+     * query armazenada — é o que permite um contrato cuja regra já está escrita em
+     * SQL conviver com os estruturados sem que nada precise decidir isso em
+     * código.</p>
+     */
+    @Column(name = "report_data_fount_id")
+    private Long reportDataFountId;
+
     @Column(name = "availability_start_at")
     private LocalDateTime availabilityStartAt;
 
@@ -77,6 +90,10 @@ public class CommissionContract extends BaseSysnormalEntity<CommissionContract> 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "replication_temporal_period_id", updatable = false, insertable = false)
     private TemporalPeriod replicationTemporalPeriod;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "report_data_fount_id", updatable = false, insertable = false)
+    private ReportDataFount reportDataFount;
 
 
 }
