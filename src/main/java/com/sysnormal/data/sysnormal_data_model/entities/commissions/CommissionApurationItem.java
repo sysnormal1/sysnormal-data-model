@@ -121,7 +121,7 @@ public class CommissionApurationItem extends BaseSysnormalEntity<CommissionApura
     private String baseValueExpression;
 
     @Column(name = "base_value", precision = 38, scale = 12)
-    private BigDecimal base_value;
+    private BigDecimal baseValue;
 
     @Column(name = "min_percent1", precision = 38, scale = 12)
     private BigDecimal minPercent1;

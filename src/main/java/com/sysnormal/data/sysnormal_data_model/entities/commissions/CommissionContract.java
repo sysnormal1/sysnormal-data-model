@@ -80,6 +80,27 @@ public class CommissionContract extends BaseSysnormalEntity<CommissionContract> 
     @Column(name = "max_result_value", precision = 38, scale = 12)
     private BigDecimal maxResultValue;
 
+    /**
+     * Como os resultados dos percentuais do item formam o resultado da apuração.
+     *
+     * <p>Vazio é o caso normal e significa a regra de hoje: soma
+     * ({@code result1 + result2}). Preenchido, o contrato passa a declarar a
+     * própria fórmula — que é o que permite mudar a forma de olhar para os dois
+     * percentuais sem tocar em código.</p>
+     *
+     * <p>Mora no <b>contrato</b>, e não no item, porque é a regra do acordo: o
+     * item diz <i>quanto</i> cada percentual rende naquele recorte, o contrato diz
+     * <i>o que fazer</i> com os dois. Um contrato com 38 itens tem uma fórmula,
+     * não 38.</p>
+     *
+     * <p>⚠️ Não é SQL nem JavaScript: é uma expressão aritmética sobre variáveis
+     * nomeadas, avaliada por um interpretador restrito. Ela não alcança banco,
+     * rede, arquivo nem classe alguma — escrever o contrário seria transformar um
+     * campo de cadastro em execução de código.</p>
+     */
+    @Column(name = "expression", length = Integer.MAX_VALUE)
+    private String expression;
+
     @Column(name = "notes", length = Integer.MAX_VALUE)
     private String notes;
 
