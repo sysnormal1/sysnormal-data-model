@@ -15,8 +15,15 @@ import org.hibernate.annotations.OnDeleteAction;
 )
 public class ApiRequest extends BaseSysnormalEntity<ApiRequest> {
 
+    /**
+     * A API a que esta requisição pertence.
+     *
+     * <p>Chamava-se {@code apiRequestId}, nome que dizia outra coisa — é o id da
+     * API, não o da requisição — e que fazia toda consulta escrita por ele
+     * apontar para o campo errado.</p>
+     */
     @Column(name = "api_id", nullable = false)
-    private Long apiRequestId;
+    private Long apiId;
 
     @Column(name = "name", length = 127)
     private String name;
@@ -45,7 +52,7 @@ public class ApiRequest extends BaseSysnormalEntity<ApiRequest> {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "api_id", updatable = false, insertable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private Api apiId;
+    private Api api;
 
 
 }
