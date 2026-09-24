@@ -77,6 +77,22 @@ public interface ApiRequestCallsRepository extends BaseSysnormalRepository<ApiRe
             """)
     List<ApiRequestCall> findBatchesByStatus(@Param("statusIds") List<Long> statusIds);
 
+    /**
+     * Os lotes de uma tabela-alvo, do mais novo para o mais velho.
+     *
+     * <p>Filtra por {@code tableOriginId} porque a tabela é compartilhada por
+     * qualquer integração: sem isso, a tela de cadastro de cliente listaria
+     * lotes de chamadas a mapas.</p>
+     */
+    @Query("""
+            select c from ApiRequestCall c
+            where c.parentId is null
+              and c.tableOriginId = :tableOriginId
+              and c.deletedAt is null
+            order by c.id desc
+            """)
+    List<ApiRequestCall> findBatchesOfTable(@Param("tableOriginId") Long tableOriginId, Limit limit);
+
     /** Um item do lote pelo alvo — usado para não pedir duas vezes o mesmo CNPJ. */
     @Query("""
             select c from ApiRequestCall c
