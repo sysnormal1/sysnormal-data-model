@@ -64,6 +64,23 @@ public class RecordFieldChange extends BaseSysnormalEntity<RecordFieldChange> {
     @Column(name = "new_value", length = Integer.MAX_VALUE)
     private String newValue;
 
+    /**
+     * Quem pediu a alteração, no domínio do <b>SSO</b>.
+     *
+     * <p>⚠️ Coluna <b>sem chave estrangeira</b>, e isso é a razão de ela
+     * existir: {@code creator_agent_id} aponta para a tabela {@code agents}
+     * DESTE banco, que é outra população — o mesmo jumbo.ti é o agente 1 no SSO
+     * e o 0 aqui. Gravar o id do SSO naquela coluna derruba o insert por
+     * violação de chave estrangeira, e foi exatamente o que aconteceu na
+     * primeira versão deste log.</p>
+     *
+     * <p>{@code creator_agent_id} continua sendo o agente de sistema, porque
+     * quem materializa a linha é o serviço; a autoria humana da decisão é
+     * esta.</p>
+     */
+    @Column(name = "sso_agent_id")
+    private Long ssoAgentId;
+
     /** `CONCLUDED` quando gravou, `STOPPED` quando falhou, `RUNNING` enquanto tenta. */
     @Column(name = "run_status_id", nullable = false)
     @ColumnDefault(ActionStatus.NOT_STARTED_ID + "")
