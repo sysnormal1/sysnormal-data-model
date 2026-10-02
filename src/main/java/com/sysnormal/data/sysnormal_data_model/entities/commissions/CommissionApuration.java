@@ -81,6 +81,28 @@ public class CommissionApuration extends BaseSysnormalEntity<CommissionApuration
     @Column(name = "result_value", precision = 38, scale = 12)
     private BigDecimal resultValue;
 
+    /**
+     * O que o primeiro percentual de cada item somou, <b>antes</b> do piso.
+     *
+     * <p>No contrato de vendedor CLT é a comissão pelos percentuais — 0,6% do
+     * Grupo A mais 1,1% do Grupo B. Guardado cru, e não já ajustado ao piso,
+     * porque é dele que sai a conta que o contrato manda mostrar: quanto foi
+     * pago a mais para chegar ao piso.</p>
+     */
+    @Column(name = "result_value1", precision = 38, scale = 12)
+    private BigDecimal resultValue1;
+
+    /**
+     * O que o segundo percentual de cada item somou, <b>antes</b> do piso.
+     *
+     * <p>É a ajuda de custo pelos percentuais — 0,4% e 0,9%. ⚠️ Não é o que o
+     * vendedor recebe de ajuda: quando a comissão fica abaixo do piso, a
+     * diferença sai daqui. O valor efetivo é derivado, não guardado, para que a
+     * regra exista num lugar só.</p>
+     */
+    @Column(name = "result_value2", precision = 38, scale = 12)
+    private BigDecimal resultValue2;
+
     @Column(name = "calculated_at")
     private LocalDateTime calculatedAt;
 
