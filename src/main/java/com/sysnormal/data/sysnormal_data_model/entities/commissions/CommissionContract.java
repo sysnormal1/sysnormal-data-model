@@ -81,6 +81,27 @@ public class CommissionContract extends BaseSysnormalEntity<CommissionContract> 
     private BigDecimal maxResultValue;
 
     /**
+     * O piso da <b>segunda</b> rubrica — a ajuda de custo, no contrato de
+     * vendedor CLT.
+     *
+     * <p>Quando a comissão não alcança {@link #minResultValue}, a diferença é
+     * descontada da ajuda de custo para que o total continue sendo a soma dos
+     * dois percentuais sobre a venda. Este campo é até onde esse desconto pode
+     * ir: a ajuda do mês nunca fica abaixo dele, e o que a empresa pagar além
+     * dos percentuais é custo dela.</p>
+     *
+     * <p>⚠️ Nulo não é "sem regra": é <b>zero</b>, que é a regra que o código já
+     * aplicava antes desta coluna existir — a ajuda chega a zerar e para ali.
+     * Preencher com 150,00 é dizer que ela para em 150,00.</p>
+     *
+     * <p>Mora no contrato, e não no item, pela mesma razão da fórmula: o item
+     * diz quanto cada percentual rende naquele recorte, o contrato diz o que
+     * fazer com os dois. Um contrato com 38 itens tem um piso de ajuda, não 38.</p>
+     */
+    @Column(name = "min_result_value2", precision = 38, scale = 12)
+    private BigDecimal minResultValue2;
+
+    /**
      * Como os resultados dos percentuais do item formam o resultado da apuração.
      *
      * <p>Vazio é o caso normal e significa a regra de hoje: soma

@@ -75,6 +75,20 @@ public class CommissionApuration extends BaseSysnormalEntity<CommissionApuration
     @Column(name = "max_result_value", precision = 38, scale = 12)
     private BigDecimal maxResultValue;
 
+    /**
+     * O piso da ajuda de custo, congelado nesta apuração.
+     *
+     * <p>Copiado do contrato na criação, como o piso e o teto — e pelo mesmo
+     * motivo. A divisão entre comissão e ajuda de custo é <b>derivada na
+     * leitura</b>: sem congelar o piso aqui, renegociar o valor amanhã faria a
+     * tela contar outra história sobre o que foi pago em janeiro.</p>
+     *
+     * <p>⚠️ Nulo em apuração anterior a esta regra, e nulo se lê como zero — que
+     * é exatamente o que valia antes.</p>
+     */
+    @Column(name = "min_result_value2", precision = 38, scale = 12)
+    private BigDecimal minResultValue2;
+
     @Column(name = "expression", length = Integer.MAX_VALUE)
     private String expression;
 
